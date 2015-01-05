@@ -1,0 +1,40 @@
+{
+    "name": "leandrose/customticket",
+    "description": "Sistema de ticket customizavel",
+    "require": {
+        "php": ">=5.3.3",
+        "silex/silex": "~1.2",
+        "silex/web-profiler": "~1.0",
+        "symfony/security": "~2.3",
+        "symfony/twig-bridge": "~2.3",
+        "symfony/monolog-bridge": "~2.3",
+        "doctrine/orm": "~2.4"
+    },
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "LeandroSe",
+            "email": "leandro@tsujiguchi.com.br"
+        }
+    ],
+    "version": "0.0.1",
+    "config": {
+        "bin-dir": "app"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    },
+    "scripts": {
+        "run": [
+            "echo 'PHP Server: http://localhost:8000'",
+            "php -S localhost:8000 -t web/ web/index_dev.php"
+        ]
+    }
+}
