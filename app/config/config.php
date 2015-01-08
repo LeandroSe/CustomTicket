@@ -36,10 +36,17 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__ . '/../../src/CustomTicket/Resources/views',
 ));
 
+
 ///////////////////
 // URL GENERATOR //
 ///////////////////
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
+
+///////////////////////////
+// TWIG GLOBAL VARIABLES //
+///////////////////////////
+$app["twig"]->addGlobal("project_title", "CustomTicket");
+$app["twig"]->addGlobal("project_separator", "|");
 
 //////////////
 // SECURITY //

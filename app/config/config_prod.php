@@ -29,3 +29,8 @@ $app->register(new Silex\Provider\MonologServiceProvider(), [
     'monolog.level' => Monolog\Logger::WARNING,
     'monolog.name' => 'CustomTicket',
 ]);
+
+///////////////////////////////////////
+// TWIG GLOBAL VARIABLE, ENVIRONMENT //
+///////////////////////////////////////
+$app["twig"]->addGlobal("environment", "prod");

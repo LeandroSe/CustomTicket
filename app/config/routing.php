@@ -19,17 +19,37 @@
  * @since 0.0.1
  */
 
+use Symfony\Component\HttpFoundation\Request;
+
 ///////////
 // ADMIN //
 ///////////
 $admin = $app['controllers_factory'];
 $app->mount('/admin', $admin);
 
+// "/admin"
+$admin->get("/", function() {
+    return "Admin";
+});
+
 ////////////
 // PUBLIC //
 ////////////
 $public = $app['controllers_factory'];
 $app->mount('/', $public);
+
+// "/"
+$public->get('/', function() {
+    return 'Public';
+});
+
+// "/login"
+$public->get('/login', function(Request $request) use ($app) {
+    return $app['twig']->render('Admin/Login/index.twig', array(
+        'error'         => $app['security.last_error']($request),
+        'last_username' => $app['session']->get('_security.last_username'),
+    ));
+});
 
 /////////
 // API //

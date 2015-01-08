@@ -4,3 +4,8 @@
 /app/config/parameters.php
 /customticket.sublime-project
 /customticket.sublime-workspace
+/node_modules
+/frontend/*
+!/frontend/src
+/web/css
+/web/js

@@ -1,0 +1,26 @@
+{
+    "name": "customticket",
+    "version": "0.0.1",
+    "homepage": "https://github.com/LeandroSe/CustomTicket",
+    "authors": [
+        "LeandroSe <leandro@tsujiguchi.com.br>"
+    ],
+    "description": "Sistema de ticket customizavel",
+    "keywords": [
+        "custom",
+        "ticket"
+    ],
+    "license": "GPL-3.0",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "angular": "~1.3",
+        "bootstrap": "~3.3"
+    }
+}

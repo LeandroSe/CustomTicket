@@ -19,6 +19,10 @@
  * @since 0.0.1
  */
 
+if (preg_match('/\.[a-z]{1,4}$/', $_SERVER["REQUEST_URI"])) {
+    return false;
+}
+
 // DEV ERRROS
 ini_set('display_errors', true);
 

@@ -15,21 +15,36 @@
  * You should have received a copy of the GNU General Public License
  * along with CustomTicket.  If not, see <http://www.gnu.org/licenses/>.
  *
+ * @package CustomTicket\Entity
+ */
+namespace CustomTicket\Entity;
+
+use Doctrine\ORM\EntityRepository;
+
+/**
+ * Repositorio da entidade {@link User}.
+ *
  * @author LeandroSe <leandro@tsujiguchi.com.br>
  * @since 0.0.1
  */
+class UserRepository extends EntityRepository
+{
 
-require __DIR__ . '/config.php';
+    /**
+     * Consultar informações do Login pelo nome do usuário, retorna informações das Regras.
+     *
+     * @param  string $username nome do usuário
+     * @return User             instancia da classe
+     */
+    public function findLogin($username)
+    {
+        $dql = $this->getEntityManager()->createQuery(
+            "SELECT u, r
+             FROM CustomTicket\Entity\User u
+             INNER JOIN u.roles r
+             WHERE u.username = :username");
+        $dql->setParameter('username', $username);
+        return $dql->getSingleResult();
+    }
 
-/////////////
-// MONOLOG //
-/////////////
-$app->register(new Silex\Provider\MonologServiceProvider(), [
-    'monolog.logfile' => __DIR__ . '/../../var/logs/dev.log',
-    'monolog.name' => 'CustomTicket',
-]);
-
-///////////////////////////////////////
-// TWIG GLOBAL VARIABLE, ENVIRONMENT //
-///////////////////////////////////////
-$app["twig"]->addGlobal("environment", "dev");
+}
