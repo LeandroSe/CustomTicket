@@ -28,8 +28,8 @@ $admin = $app['controllers_factory'];
 $app->mount('/admin', $admin);
 
 // "/admin"
-$admin->get("/", function() {
-    return "Admin";
+$admin->get("/", function() use ($app) {
+    return $app['twig']->render('Admin/Default/index.twig');
 })->bind('admin');
 
 ////////////
