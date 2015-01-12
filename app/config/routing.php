@@ -30,7 +30,7 @@ $app->mount('/admin', $admin);
 // "/admin"
 $admin->get("/", function() {
     return "Admin";
-});
+})->bind('admin');
 
 ////////////
 // PUBLIC //
