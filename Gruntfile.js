@@ -6,10 +6,9 @@ module.exports = function(grunt) {
         banner: '/*\n' +
                 ' * CustomTicket <%= pkg.version %>\n' +
                 ' */\n',
-        jqueryCheck: 'if (typeof jQuery === \'undefined\') { throw new Error(\'CustomTicket requires jQuery\') }\n\n',
         concat: {
             options: {
-                banner: '<%= banner %>\n<%= jqueryCheck %>',
+                banner: '<%= banner %>',
                 stripBanners: false
             },
             customticket: {
@@ -79,10 +78,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-remove');
 
     // Default task(s).
-    
+
     grunt.registerTask('css', ['less', 'usebanner']);
     grunt.registerTask('js', ['concat', 'uglify']);
     grunt.registerTask('default', ['js', 'css']);
