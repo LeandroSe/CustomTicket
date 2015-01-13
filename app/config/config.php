@@ -42,6 +42,11 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ///////////////////
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
 
+////////////////
+// CONTROLLER //
+////////////////
+$app->register(new Silex\Provider\ServiceControllerServiceProvider());
+
 ///////////////////////////
 // TWIG GLOBAL VARIABLES //
 ///////////////////////////

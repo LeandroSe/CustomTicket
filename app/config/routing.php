@@ -24,13 +24,9 @@ use Symfony\Component\HttpFoundation\Request;
 ///////////
 // ADMIN //
 ///////////
-$admin = $app['controllers_factory'];
-$app->mount('/admin', $admin);
-
-// "/admin"
-$admin->get("/", function() use ($app) {
-    return $app['twig']->render('Admin/Default/index.twig');
-})->bind('admin');
+$adminProvider = new CustomTicket\Controller\Admin\AdminProvider();
+$app->register($adminProvider)
+    ->mount('/admin', $adminProvider);
 
 ////////////
 // PUBLIC //
